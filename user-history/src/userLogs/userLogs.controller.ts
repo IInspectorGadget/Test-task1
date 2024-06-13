@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { TaskService } from './userLogs.service';
 import { GetUsersDto, UserLogsDto } from './userLogs.dto';
+import { UserLog } from '@prisma/client';
 
 @Controller('userLogs')
 export class TaskController {
@@ -23,7 +24,7 @@ export class TaskController {
       }),
     )
     dto: GetUsersDto,
-  ) {
+  ): Promise<UserLog[]> {
     return this.taskService.getUserLog(
       dto.page || 1,
       dto.pageSize || 10,
@@ -33,7 +34,9 @@ export class TaskController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  async createUserLog(@Body(new ValidationPipe()) dto: UserLogsDto) {
+  async createUserLog(
+    @Body(new ValidationPipe()) dto: UserLogsDto,
+  ): Promise<UserLog> {
     const res = await this.taskService.createUserLog(dto);
     return res;
   }
