@@ -76,12 +76,14 @@ export const getUsers = async (req, res) => {
 };
 
 
+// Отключаем призму и сохраняем не отправленные данные в файл
 export const gracefulShutdown = async () => {
   console.log('Shutting down server...');
   try {
     await prismaService.disconnect();
-    retryQueue.saveQueueToFile();
     console.log('Prisma disconnected');
+    retryQueue.saveQueueToFile();
+    console.log('Queue save');
   } catch (error) {
     console.error('Error disconnecting Prisma:', error);
   } finally {

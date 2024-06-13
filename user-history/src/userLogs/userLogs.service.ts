@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { TaskDto } from './userLogs.dto';
+import { UserLogsDto } from './userLogs.dto';
 import { DatabaseService } from '../database/database.service';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class TaskService {
     });
   }
 
-  async createUserLog(dto: TaskDto) {
+  async createUserLog(dto: UserLogsDto) {
     const date = new Date(dto.date).toISOString();
     return this.databaseService.userLog.create({
       data: {

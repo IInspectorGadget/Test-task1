@@ -8,7 +8,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { TaskService } from './userLogs.service';
-import { GetUsersDto, TaskDto } from './userLogs.dto';
+import { GetUsersDto, UserLogsDto } from './userLogs.dto';
 
 @Controller('userLogs')
 export class TaskController {
@@ -33,7 +33,7 @@ export class TaskController {
 
   @Post()
   @UsePipes(new ValidationPipe())
-  async createUserLog(@Body(new ValidationPipe()) dto: TaskDto) {
+  async createUserLog(@Body(new ValidationPipe()) dto: UserLogsDto) {
     const res = await this.taskService.createUserLog(dto);
     return res;
   }

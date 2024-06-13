@@ -6,7 +6,7 @@ import {
   Min,
 } from 'class-validator';
 
-export class TaskDto {
+export class UserLogsDto {
   @Min(1)
   @IsInt()
   user_id: number;
