@@ -11,7 +11,7 @@ import { TaskService } from './userLogs.service';
 import { GetUsersDto, UserLogsDto } from './userLogs.dto';
 import { UserLog } from '@prisma/client';
 
-@Controller('userLogs')
+@Controller('user_logs')
 export class TaskController {
   constructor(private readonly taskService: TaskService) {}
 

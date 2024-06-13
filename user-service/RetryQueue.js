@@ -24,6 +24,8 @@ class RetryQueue {
       this.processing = true;
       await this.processQueue();
       this.processing = false;
+      this.time = 500;
+      this.attempt = 1;
     }
   }
 
@@ -32,7 +34,7 @@ class RetryQueue {
     while (this.queue.length > 0) {
       const data = this.queue[0];
       try {
-        await axios.post('http://localhost:3001/api/userLogs', data);
+        await axios.post('http://localhost:3001/api/user_logs', data);
         console.log('Data sent successfully:', data);
         this.queue.shift();
       } catch (error) {

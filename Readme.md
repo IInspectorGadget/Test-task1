@@ -7,8 +7,8 @@
 ### Запуск первого сервиса
 1. Перейти в папку user-service
 2. В файле .env указать свои данные базы данных
-3. Написать команду npx prisma migrate dev
-4. Написать команду npm start
+3. Ввести команду npx prisma migrate dev
+4. Ввести команду npm run start
 ## Второй сервис
 Хранит историю действия с пользователями.
 Написан на typescript с использованием nest.js и prisma. 
@@ -16,5 +16,5 @@
 ### Запуск второго сервиса 
 1. Перейти в папку user-history
 2. В файле .env указать свои данные базы данных
-3. Написать команду npx prisma migrate dev
-4. Написать команду npm start или npm start:dev
+3. Ввести команду npx prisma migrate dev
+4. Ввести команду npm run start или npm run start:dev
